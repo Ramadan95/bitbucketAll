@@ -1,16 +1,17 @@
 package com.student.javacourse.module01.lesson3;
 
-public class Main {
+import java.util.Arrays;
+
+public class SearchDuplicate {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,3,4,5};
+        int[] arr = {6,2,3,4,5,6};
         System.out.println(arrDuplicate(arr));
     }
 
     static boolean arrDuplicate(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] == arr[j]) return true;
-            }
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) return true;
         }
         return false;
     }
